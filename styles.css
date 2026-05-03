@@ -204,7 +204,7 @@ h3 {
 }
 
 h1 {
-  max-width: 18ch;
+  max-width: 28ch;
   font-size: clamp(2.8rem, 5.6vw, 4.8rem);
 }
 
@@ -419,7 +419,8 @@ h1 {
 }
 
 .sharp-icon .icon-sharp-core,
-.technical-icon .icon-technical-cube,
+.technical-icon .icon-technical-outer,
+.technical-icon .icon-technical-inner,
 .operator-icon .icon-operator-axes,
 .operator-icon .icon-operator-middle,
 .operator-icon .icon-operator-core,
@@ -433,33 +434,31 @@ h1 {
 }
 
 .icon-sharp-frame {
-  animation: iconFloatRotate 1.8s ease-in-out 2 both;
-}
-
-.icon-sharp-core {
-  animation: iconPulse 1.4s ease-in-out 2 both;
+  animation: rotateSettle 2.2s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .icon-operator-outer {
-  animation: rotateSlow 1.8s linear 2 both;
+  animation: rotateSettle 2.4s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
 .icon-operator-axes {
-  animation: rotateReverse 1.8s linear 2 both;
+  animation: rotateReverseSettle 2.4s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
-.icon-technical-cube {
-  animation: iconFloatRotate 1.8s ease-in-out 2 both;
+.icon-technical-inner {
+  animation: cubePulse 2.1s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
 .icon-pattern-grid circle {
-  animation: dotPulse 0.9s ease-in-out 2 both;
+  animation: dotPulse 1.15s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
 }
 
 .icon-pattern-grid circle:nth-child(5n + 1) { animation-delay: 0s; }
@@ -469,47 +468,104 @@ h1 {
 .icon-pattern-grid circle:nth-child(5n) { animation-delay: 0.48s; }
 
 .icon-endurance-outer {
-  animation: breatheOuter 1.4s ease-in-out 2 both;
+  animation: rotateSettle 2.6s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
 .icon-endurance-middle {
-  animation: breatheMiddle 1.4s ease-in-out 2 both;
+  animation: breatheMiddle 1.9s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
 .icon-endurance-core {
-  animation: breatheCore 1.4s ease-in-out 2 both;
+  animation: enduranceSlingshot 1.9s cubic-bezier(0.16, 0.84, 0.18, 1) 1;
   transform-origin: center;
   transform-box: fill-box;
 }
 
-@keyframes rotateSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.value-item:hover .icon-sharp-frame {
+  animation: rotateSettleHover 1.25s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
 }
 
-@keyframes rotateReverse {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+.value-item:hover .icon-operator-outer {
+  animation: rotateSettleHover 1.5s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
 }
 
-@keyframes iconFloatRotate {
-  0%, 100% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(4deg) translateY(-0.5px); }
+.value-item:hover .icon-operator-axes {
+  animation: rotateReverseSettleHover 1.5s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
 }
 
-@keyframes iconPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.84; transform: scale(1.04); }
+.value-item:hover .icon-technical-inner {
+  animation: cubePulseHover 1.2s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
+}
+
+.value-item:hover .icon-pattern-grid circle {
+  animation: dotWaveHover 0.85s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
+}
+
+.value-item:hover .icon-endurance-outer {
+  animation: rotateSettleHover 1.55s cubic-bezier(0.16, 0.8, 0.2, 1) 1;
+}
+
+.value-item:hover .icon-endurance-middle {
+  animation: breatheMiddleHover 1.05s cubic-bezier(0.2, 0.72, 0.2, 1) 1;
+}
+
+.value-item:hover .icon-endurance-core {
+  animation: enduranceSlingshotHover 1.05s cubic-bezier(0.16, 0.84, 0.18, 1) 1;
+}
+
+@keyframes rotateSettle {
+  0% { transform: rotate(0deg); }
+  82% { transform: rotate(336deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverseSettle {
+  0% { transform: rotate(0deg); }
+  82% { transform: rotate(-336deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes rotateSettleHover {
+  0% { transform: rotate(0deg); }
+  82% { transform: rotate(336deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverseSettleHover {
+  0% { transform: rotate(0deg); }
+  82% { transform: rotate(-336deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes cubePulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.22); opacity: 1; }
+}
+
+@keyframes cubePulseHover {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.22); opacity: 1; }
 }
 
 @keyframes dotPulse {
   0%, 100% { opacity: 0.55; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.16); }
+  50% { opacity: 1; transform: scale(1.38); }
 }
+
+@keyframes dotPulseHover {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.38); }
+}
+
+@keyframes dotWaveHover {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.38); }
+}
+
 
 @keyframes breatheOuter {
   0%, 100% { transform: scale(1); opacity: 0.95; }
@@ -521,21 +577,55 @@ h1 {
   50% { transform: scale(0.97); opacity: 0.78; }
 }
 
+@keyframes breatheMiddleHover {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(0.97); opacity: 0.78; }
+}
+
 @keyframes breatheCore {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.1); opacity: 0.88; }
 }
 
+@keyframes breatheCoreHover {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.88; }
+}
+
+@keyframes enduranceSlingshot {
+  0% { transform: scale(1); opacity: 0.98; }
+  58% { transform: scale(2.25); opacity: 0.9; }
+  78% { transform: scale(0.82); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes enduranceSlingshotHover {
+  0% { transform: scale(1); opacity: 0.98; }
+  58% { transform: scale(2.25); opacity: 0.9; }
+  78% { transform: scale(0.82); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .icon-sharp-frame,
-  .icon-sharp-core,
   .icon-operator-outer,
   .icon-operator-axes,
-  .icon-technical-cube,
+  .icon-technical-inner,
   .icon-pattern-grid circle,
   .icon-endurance-outer,
   .icon-endurance-middle,
   .icon-endurance-core {
+    animation: none;
+  }
+
+  .value-item:hover .icon-sharp-frame,
+  .value-item:hover .icon-operator-outer,
+  .value-item:hover .icon-operator-axes,
+  .value-item:hover .icon-technical-inner,
+  .value-item:hover .icon-pattern-grid circle,
+  .value-item:hover .icon-endurance-outer,
+  .value-item:hover .icon-endurance-middle,
+  .value-item:hover .icon-endurance-core {
     animation: none;
   }
 }
@@ -658,7 +748,7 @@ h1 {
 }
 
 .section-heading {
-  max-width: 720px;
+  max-width: 1080px;
 }
 
 .team-grid {
@@ -709,7 +799,7 @@ h1 {
 }
 
 .subpage-hero h1 {
-  max-width: 20ch;
+  max-width: 32ch;
   font-size: clamp(3rem, 5vw, 4.7rem);
 }
 

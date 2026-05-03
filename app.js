@@ -1,33 +1,30 @@
 const companies = {
   glean: {
     name: "Glean",
-    subtitle: "AI search for work",
-    description:
-      "Productivity infrastructure for teams that need trustworthy knowledge access across the modern enterprise."
+    subtitle: "AI for work",
+    description: "Work AI that works like magic."
   },
   etched: {
     name: "Etched",
-    subtitle: "Custom silicon for AI",
-    description:
-      "A company building specialized compute infrastructure for the next generation of large-scale model inference."
+    subtitle: "Semiconductors",
+    description: "Building the hardware for superintelligence."
   },
   hightouch: {
     name: "Hightouch",
-    subtitle: "Composable CDP",
-    description:
-      "Data activation software that helps teams operationalize warehouse-native customer intelligence."
+    subtitle: "AI for marketing",
+    description: "Make your marketers limitless."
   },
-  limitless: {
-    name: "Limitless",
-    subtitle: "AI memory systems",
+  blackstar: {
+    name: "Blackstar",
+    subtitle: "New hardware",
     description:
-      "Tools focused on capturing, structuring, and extending human memory with intelligent software."
+      "The computer, made personal. We're building a new computer that knows you."
   },
-  ambient: {
-    name: "Ambient",
-    subtitle: "Clinical AI",
+  contrario: {
+    name: "Contrario",
+    subtitle: "AI for recruiting",
     description:
-      "Applied AI for healthcare workflows, designed to reduce friction and expand what clinical teams can do."
+      "Fill critical roles faster with AI-empowered recruiters."
   }
 };
 
