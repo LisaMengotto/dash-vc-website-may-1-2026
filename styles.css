@@ -1035,44 +1035,211 @@ h1 {
   line-height: 1.54;
 }
 
+@media (max-width: 1280px) {
+  .page-shell {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .site-header {
+    padding: 0 28px 0 30px;
+  }
+
+  .hero-copy,
+  .panel,
+  .team-section,
+  .site-footer,
+  .subpage-hero-copy {
+    padding-left: 30px;
+    padding-right: 28px;
+  }
+
+  .site-nav {
+    gap: 20px;
+    font-size: 0.66rem;
+  }
+
+  .portfolio-pill strong {
+    font-size: 1.7rem;
+  }
+
+  .portfolio-strip {
+    grid-template-columns: 1fr repeat(5, minmax(0, 1fr));
+  }
+
+  .grid-section {
+    grid-template-columns: 4.6fr 3.2fr 2.1fr 2.1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1100px) {
-  .hero,
-  .grid-section,
-  .team-grid,
-  .portfolio-strip,
-  .subpage-hero,
+  .site-header {
+    gap: 18px;
+    padding: 0 22px 0 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-copy {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px 26px;
+  }
+
+  .hero-copy h1 {
+    max-width: 13ch;
+  }
+
+  .hero-visual {
+    min-height: 400px;
+  }
+
+  .blueprint-card {
+    min-height: 400px;
+  }
+
+  .portfolio-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .strip-label {
+    grid-column: 1 / -1;
+    min-height: 72px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .portfolio-pill {
+    min-height: 94px;
+  }
+
+  .grid-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: auto;
+  }
+
+  .values-panel {
+    grid-column: 1 / -1;
+  }
+
+  .philosophy-panel,
+  .texture-panel,
+  .spotlight-panel {
+    min-height: 0;
+  }
+
+  .spotlight-panel {
+    grid-column: 1 / -1;
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+
+  .values-tail {
+    margin-top: 24px;
+    max-width: 24ch;
+  }
+
+  .subpage-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .subpage-hero-copy {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px 24px;
+  }
+
+  .subpage-hero-visual {
+    min-height: 280px;
+  }
+
   .content-grid.two-up,
   .philosophy-grid,
-  .logo-grid,
   .bio-grid,
   .insight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-grid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    gap: 14px;
+    letter-spacing: 0.13em;
+    font-size: 0.62rem;
+  }
+
+  .hero-copy h1,
+  .subpage-hero h1 {
+    max-width: 15ch;
+  }
+
+  .portfolio-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .portfolio-pill {
+    border-top: 1px solid var(--border);
+  }
+
+  .strip-label {
+    min-height: 66px;
+  }
+
+  .grid-section {
     grid-template-columns: 1fr;
+  }
+
+  .values-panel,
+  .philosophy-panel,
+  .texture-panel,
+  .spotlight-panel {
+    grid-column: auto;
   }
 
   .value-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-visual {
-    min-height: 420px;
-  }
-
-  .blueprint-card {
-    min-height: 420px;
-  }
-
-  .subpage-hero-visual {
-    min-height: 300px;
-  }
-
-  .portfolio-pill,
-  .strip-label {
-    border-left: 0;
-    border-top: 1px solid var(--border);
-  }
-
+  .content-grid.two-up,
+  .philosophy-grid,
+  .bio-grid,
+  .insight-grid,
   .team-grid {
-    gap: 14px;
+    grid-template-columns: 1fr;
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-links {
+    gap: 14px 18px;
   }
 }
 
@@ -1137,9 +1304,33 @@ h1 {
     font-size: clamp(2.2rem, 10vw, 3.35rem);
   }
 
+  .hero-copy h1,
+  .subpage-hero h1 {
+    max-width: 11ch;
+  }
+
+  .hero-text,
+  .lead {
+    max-width: 34ch;
+  }
+
+  .portfolio-strip,
   .value-grid,
-  .team-grid {
+  .team-grid,
+  .logo-grid,
+  .content-grid.two-up,
+  .philosophy-grid,
+  .bio-grid,
+  .insight-grid {
     grid-template-columns: 1fr;
+  }
+
+  .strip-label,
+  .portfolio-pill {
+    min-height: auto;
+    padding: 16px 18px 14px;
+    border-left: 0;
+    border-top: 1px solid var(--border);
   }
 
   .subpage-hero,
@@ -1163,16 +1354,70 @@ h1 {
     min-height: 240px;
   }
 
-  .subpage-hero h1 {
-    max-width: 18ch;
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
+  .values-tail {
+    max-width: 16ch;
+    font-size: clamp(1.3rem, 7vw, 1.75rem);
   }
 
-  .site-footer {
-    flex-direction: column;
+  .logo-card {
+    min-height: 118px;
+  }
+
+  .subpage-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
   }
 
   .brand {
     font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    width: calc(100% - 12px);
+    margin: 6px auto;
+  }
+
+  .site-header,
+  .hero-copy,
+  .panel,
+  .team-section,
+  .site-footer,
+  .subpage-hero-copy,
+  .content-panel,
+  .logo-card,
+  .bio-card,
+  .insight-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand {
+    font-size: 1.28rem;
+    letter-spacing: 0.18em;
+  }
+
+  .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+  }
+
+  .portfolio-pill strong {
+    font-size: 1.55rem;
+  }
+
+  .philosophy-panel h2,
+  .spotlight-copy h2,
+  .section-heading h2,
+  .team-card h3,
+  .content-panel h2,
+  .bio-card h2,
+  .insight-card h2 {
+    font-size: clamp(1.45rem, 9vw, 2rem);
+  }
+
+  .team-card {
+    padding: 20px 16px;
   }
 }
